@@ -36,6 +36,7 @@ router.get("/:id", (req, res, next) => {
       res.json(quote)
     }
     else {
+      res.status(404)
       res.json({
         id,
         msg: "Resource cannot be found!"
@@ -63,6 +64,8 @@ router.post("/", (req, res, next) => {
   }
 })
 
+// This update the corresponding quote in our
+// in memory database!
 router.put("/:id", (req, res, next) => {
   try {
     let { id } = req.params
